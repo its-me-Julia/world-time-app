@@ -1,0 +1,72 @@
+body {
+  background-color: rgb(229, 229, 229);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.main-div {
+  background-color: white;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 40px;
+  width: 80%;
+  padding: 30px;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+}
+
+hr {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+select {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 20px 20px;
+}
+
+.cities-div {
+  margin: auto;
+  width: 80%;
+}
+
+.city {
+  display: flex;
+  justify-content: space-between;
+}
+
+.place-date {
+  text-align: left;
+}
+
+.place {
+  margin: 0;
+  font-size: 30px;
+}
+
+.date {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.time {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
