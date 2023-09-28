@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone-with-data-1970-2030.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -16,11 +18,11 @@
         <option value="">London</option>
         <option value="">New York</option>
         <option value="">Sydney</option>
-        <option value="">Johanesburg</option>
+        <option value="">Johannesburg</option>
       </select>
 
       <div class="cities-div">
-        <div class="city">
+        <div class="city" id="london">
           <div class="place-date">
             <h3 class="place">London</h3>
             <h7 class="date">September 25 2023</h7>
@@ -28,7 +30,7 @@
           <div class="time"><h7>11:45:30</h7></div>
         </div>
         <hr />
-        <div class="city">
+        <div class="city" id="new-york">
           <div class="place-date">
             <h3 class="place">New York</h3>
             <h7 class="date">September 25 2023</h7>
@@ -36,7 +38,7 @@
           <div class="time"><h7>11:45:30</h7></div>
         </div>
         <hr />
-        <div class="city">
+        <div class="city" id="sydney">
           <div class="place-date">
             <h3 class="place">Sydney</h3>
             <h7 class="date">September 25 2023</h7>
@@ -44,9 +46,9 @@
           <div class="time"><h7>11:45:30</h7></div>
         </div>
         <hr />
-        <div class="city">
+        <div class="city" id="johannesburg">
           <div class="place-date">
-            <h3 class="place">Johanesburg</h3>
+            <h3 class="place">Johannesburg</h3>
             <h7 class="date">September 25 2023</h7>
           </div>
           <div class="time"><h7>11:45:30</h7></div>

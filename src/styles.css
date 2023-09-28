@@ -36,6 +36,8 @@ select {
 .city {
   display: flex;
   justify-content: space-between;
+  margin: auto;
+  width: 95%;
 }
 
 .place-date {
@@ -53,12 +55,12 @@ select {
 }
 
 .time {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
 }
 
 footer {
-  margin-top: 10px;
+  margin: 15px 15px;
 }
 
 a {
