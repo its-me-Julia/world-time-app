@@ -1,4 +1,22 @@
-setInterval(function () {
+let citiesSelect = document.querySelector("#cities");
+
+function updateCity(event) {
+  let cityTz = event.target.value;
+  let cityTimeZone = moment().tz(cityTz);
+  let cityName = cityTz.replace("_", " ").split("/")[1];
+  let cityElement = document.querySelector("#cities-div");
+  cityElement.innerHTML = `<div class="city">
+          <div class="place-date">
+            <h3 class="place">${cityName}</h3>
+            <h7 class="date">${cityTimeZone.format(`MMMM D YYYY`)}</h7>
+          </div>
+          <div class="time"><h7>${cityTimeZone.format("HH:mm:ss")}</h7></div>
+        </div>`;
+}
+
+citiesSelect.addEventListener("change", updateCity);
+
+function updateTime() {
   //London
   let londonElement = document.querySelector("#london");
   let londonDateElement = londonElement.querySelector(".date");
@@ -32,4 +50,7 @@ setInterval(function () {
   johannesburgTimeElement.innerHTML = moment()
     .tz(`Africa/Johannesburg`)
     .format("HH:mm:ss");
-}, 1000);
+}
+
+updateTime();
+setInterval(updateTime, 1000);
