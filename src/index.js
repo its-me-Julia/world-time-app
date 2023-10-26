@@ -2,6 +2,9 @@ let citiesSelect = document.querySelector("#cities");
 
 function updateCity(event) {
   let cityTz = event.target.value;
+  if (cityTz === "current-location") {
+    cityTz = moment.tz.guess();
+  }
   let cityTimeZone = moment().tz(cityTz);
   let cityName = cityTz.replace("_", " ").split("/")[1];
   let cityElement = document.querySelector("#cities-div");
