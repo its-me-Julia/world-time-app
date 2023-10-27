@@ -15,53 +15,39 @@
 
         <img class="logo" src="../../Untitled-2.png" alt="logo" />
       </div>
-      <select id="cities">
-        <option>Select a city</option>
+      <hr />
+
+      <p>Select a city and see the current time at given location.</p>
+
+      <select id="cities-dropdown">
+        <option value="select">Select a city</option>
         <option value="current-location">Your current timezone</option>
         <option value="Europe/London">London</option>
         <option value="America/New_York">New York</option>
         <option value="Australia/Sydney">Sydney</option>
         <option value="Africa/Johannesburg">Johannesburg</option>
+        <option value="Pacific/Honolulu">Honolulu</option>
       </select>
 
       <div class="cities-div" id="cities-div">
-        <div class="city" id="london">
+        <div class="city" id="city">
           <div class="place-date">
-            <h3 class="place">London</h3>
-            <h7 class="date">September 25 2023</h7>
+            <h3 class="place"></h3>
+            <h7 class="date"></h7>
           </div>
-          <div class="time"><h7>11:45:30</h7></div>
-        </div>
-        <hr />
-        <div class="city" id="new-york">
-          <div class="place-date">
-            <h3 class="place">New York</h3>
-            <h7 class="date">September 25 2023</h7>
-          </div>
-          <div class="time"><h7>11:45:30</h7></div>
-        </div>
-        <hr />
-        <div class="city" id="sydney">
-          <div class="place-date">
-            <h3 class="place">Sydney</h3>
-            <h7 class="date">September 25 2023</h7>
-          </div>
-          <div class="time"><h7>11:45:30</h7></div>
-        </div>
-        <hr />
-        <div class="city" id="johannesburg">
-          <div class="place-date">
-            <h3 class="place">Johannesburg</h3>
-            <h7 class="date">September 25 2023</h7>
-          </div>
-          <div class="time"><h7>11:45:30</h7></div>
+          <div class="time"><h7></h7></div>
         </div>
       </div>
-      <button class="show-all-btn" id="show-all-btn">Show all cities</button>
     </div>
     <footer>
       - Coded by
-      <a target="_blank" href="https://github.com/its-me-Julia">JuliaD</a> -
+      <a
+        class="footer-link"
+        target="_blank"
+        href="https://github.com/its-me-Julia"
+        >JuliaD</a
+      >
+      -
     </footer>
     <script src="src/index.js"></script>
   </body>

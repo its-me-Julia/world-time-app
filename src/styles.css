@@ -15,8 +15,8 @@ body {
 }
 
 .header {
-  margin: auto;
   width: 76%;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +28,7 @@ body {
 }
 
 hr {
-  width: 100%;
+  width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -39,6 +39,12 @@ select {
   font-size: 16px;
   border-radius: 5px;
   margin: 20px 20px;
+}
+
+.select-city-js {
+  font-size: large;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .cities-div {
@@ -91,12 +97,12 @@ footer {
   margin: 15px 15px;
 }
 
-a {
+.footer-link {
   color: black;
   text-decoration: none;
   font-weight: bold;
 }
 
-a:hover {
+.footer-link:hover {
   text-decoration: underline;
 }

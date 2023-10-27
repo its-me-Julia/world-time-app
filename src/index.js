@@ -1,59 +1,51 @@
-let citiesSelect = document.querySelector("#cities");
+let citiesDropdown = document.querySelector("#cities-dropdown");
+let citiesDiv = document.querySelector("#cities-div");
 
-function updateCity(event) {
-  let cityTz = event.target.value;
-  if (cityTz === "current-location") {
-    cityTz = moment.tz.guess();
+function showTime(event) {
+  let timezone = event.target.value;
+  if (timezone === "select") {
+    citiesDiv.innerHTML = `<div class="select-city-js">Please select a city!</div>`;
   }
-  let cityTimeZone = moment().tz(cityTz);
-  let cityName = cityTz.replace("_", " ").split("/")[1];
-  let cityElement = document.querySelector("#cities-div");
-  cityElement.innerHTML = `<div class="city">
+  if (timezone === "current-location") {
+    let currentLoc = moment.tz.guess();
+    let currentLocCityFormat = currentLoc.split("/");
+    let currentLocCity = currentLocCityFormat[1].replace("_", " ");
+    let currentLocDate = moment.tz(currentLoc).format("dddd, Do [of] MMMM");
+    let currentLocTime = moment.tz(currentLoc).format("HH:mm:ss");
+    citiesDiv.innerHTML = `<div class="city" id="city">
           <div class="place-date">
-            <h3 class="place">${cityName}</h3>
-            <h7 class="date">${cityTimeZone.format(`MMMM D YYYY`)}</h7>
+            <h3 class="place">${currentLocCity}</h3>
+            <h7 class="date">${currentLocDate}</h7>
           </div>
-          <div class="time"><h7>${cityTimeZone.format("HH:mm:ss")}</h7></div>
+          <div class="time"><h7>${currentLocTime}</h7></div>
         </div>`;
+  }
+  let cityFormat = timezone.split("/");
+  let city = cityFormat[1].replace("_", " ");
+  let date = moment.tz(timezone).format("dddd, Do [of] MMMM");
+  let time = moment.tz(timezone).format("HH:mm:ss");
+  citiesDiv.innerHTML = `<div class="city" id="city">
+          <div class="place-date">
+            <h3 class="place">${city}</h3>
+            <h7 class="date" id="date">${date}</h7>
+          </div>
+          <div class="time" id="time"><h7>${time}</h7></div>
+        </div>`;
+
+  function updateTime() {
+    let cityDiv = citiesDiv.querySelector("#city");
+    if (cityDiv) {
+      let cityUpdate = city;
+      let dateUpdate = moment.tz(timezone).format("dddd, Do [of] MMMM");
+      let timeUpdate = moment.tz(timezone).format("HH:mm:ss");
+      cityDiv.innerHTML = `<div class="place-date">
+            <h3 class="place">${cityUpdate}</h3>
+            <h7 class="date" id="date">${dateUpdate}</h7>
+          </div>
+          <div class="time" id="time"><h7>${timeUpdate}</h7></div>`;
+    }
+  }
+  setInterval(updateTime, 1000);
 }
 
-citiesSelect.addEventListener("change", updateCity);
-
-function updateTime() {
-  //London
-  let londonElement = document.querySelector("#london");
-  let londonDateElement = londonElement.querySelector(".date");
-  londonDateElement.innerHTML = moment().format(`MMMM D YYYY`);
-  let londonTimeElement = londonElement.querySelector(".time");
-  londonTimeElement.innerHTML = moment().tz(`Europe/London`).format("HH:mm:ss");
-
-  //New York
-  let newYorkElement = document.querySelector("#new-york");
-  let newYorkDateElement = newYorkElement.querySelector(".date");
-  newYorkDateElement.innerHTML = moment().format(`MMMM D YYYY`);
-  let newYorkTimeElement = newYorkElement.querySelector(".time");
-  newYorkTimeElement.innerHTML = moment()
-    .tz(`America/New_York`)
-    .format("HH:mm:ss");
-
-  //Sydney
-  let sydneyElement = document.querySelector("#sydney");
-  let sydneyDateElement = sydneyElement.querySelector(".date");
-  sydneyDateElement.innerHTML = moment().format(`MMMM D YYYY`);
-  let sydneyTimeElement = sydneyElement.querySelector(".time");
-  sydneyTimeElement.innerHTML = moment()
-    .tz(`Australia/Sydney`)
-    .format("HH:mm:ss");
-
-  //Johannesburg
-  let johannesburgElement = document.querySelector("#johannesburg");
-  let johannesburgDateElement = johannesburgElement.querySelector(".date");
-  johannesburgDateElement.innerHTML = moment().format(`MMMM D YYYY`);
-  let johannesburgTimeElement = johannesburgElement.querySelector(".time");
-  johannesburgTimeElement.innerHTML = moment()
-    .tz(`Africa/Johannesburg`)
-    .format("HH:mm:ss");
-}
-
-updateTime();
-setInterval(updateTime, 1000);
+citiesDropdown.addEventListener("change", showTime);
