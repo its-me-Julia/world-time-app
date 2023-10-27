@@ -2,6 +2,7 @@ let citiesDropdown = document.querySelector("#cities-dropdown");
 let citiesDiv = document.querySelector("#cities-div");
 
 function showTime(event) {
+  clearInterval(interval);
   let timezone = event.target.value;
   if (timezone === "select") {
     citiesDiv.innerHTML = `<div class="select-city-js">Please select a city!</div>`;
@@ -44,7 +45,8 @@ function showTime(event) {
           <div class="time" id="time"><h7>${timeUpdate}</h7></div>`;
     }
   }
-  setInterval(updateTime, 1000);
+  interval = setInterval(updateTime, 1000);
 }
 
+let interval = null;
 citiesDropdown.addEventListener("change", showTime);
