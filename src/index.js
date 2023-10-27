@@ -35,11 +35,10 @@ function showTime(event) {
   function updateTime() {
     let cityDiv = citiesDiv.querySelector("#city");
     if (cityDiv) {
-      let cityUpdate = city;
       let dateUpdate = moment.tz(timezone).format("dddd, Do [of] MMMM");
       let timeUpdate = moment.tz(timezone).format("HH:mm:ss");
       cityDiv.innerHTML = `<div class="place-date">
-            <h3 class="place">${cityUpdate}</h3>
+            <h3 class="place">${city}</h3>
             <h7 class="date" id="date">${dateUpdate}</h7>
           </div>
           <div class="time" id="time"><h7>${timeUpdate}</h7></div>`;
