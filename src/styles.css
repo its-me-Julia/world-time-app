@@ -27,10 +27,14 @@ body {
   height: 20%;
 }
 
-hr {
+.main-hr {
   width: 80%;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.js-hr {
+  margin: 20px;
 }
 
 select {
@@ -50,6 +54,7 @@ select {
 .cities-div {
   margin: auto;
   width: 80%;
+  margin-bottom: 20px;
 }
 
 .city {
@@ -78,9 +83,11 @@ select {
   font-weight: bold;
 }
 
+.show-all-btn-div {
+  margin-left: -70%;
+}
+
 .show-all-btn {
-  margin: 50px 330px 10px -330px;
-  padding: 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;

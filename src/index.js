@@ -1,5 +1,6 @@
 let citiesDropdown = document.querySelector("#cities-dropdown");
 let citiesDiv = document.querySelector("#cities-div");
+let showAllBtn = document.querySelector("#show-all-btn");
 
 function showTime(event) {
   clearInterval(interval);
@@ -18,7 +19,7 @@ function showTime(event) {
             <h3 class="place">${currentLocCity}</h3>
             <h7 class="date">${currentLocDate}</h7>
           </div>
-          <div class="time"><h7>${currentLocTime}</h7></div>
+          <div class="time"><h7>${currentLocTime}</h7></div>    
         </div>`;
   }
   let cityFormat = timezone.split("/");
@@ -30,8 +31,9 @@ function showTime(event) {
             <h3 class="place">${city}</h3>
             <h7 class="date" id="date">${date}</h7>
           </div>
-          <div class="time" id="time"><h7>${time}</h7></div>
-        </div>`;
+          <div class="time" id="time"><h7>${time}</h7></div>  
+        </div>
+        `;
 
   function updateTime() {
     let cityDiv = citiesDiv.querySelector("#city");
@@ -50,3 +52,32 @@ function showTime(event) {
 
 let interval = null;
 citiesDropdown.addEventListener("change", showTime);
+
+function showAllCities() {
+  let values = [
+    "Europe/London",
+    "America/New_York",
+    "Australia/Sydney",
+    "Africa/Johannesburg",
+    "Pacific/Honolulu",
+  ];
+  let repeatCity = `<div>`;
+  values.forEach((value) => {
+    let oneCityDiv = `<div class="city" id="city">`;
+    let cityValueFormat = value.split("/");
+    let cityValue = cityValueFormat[1].replace("_", " ");
+    let dateValue = moment.tz(value).format("dddd, Do [of] MMMM");
+    let timeValue = moment.tz(value).format("HH:mm:ss");
+    let placeDateTimeDiv = `<div class="place-date">
+            <h3 class="place">${cityValue}</h3>
+            <h7 class="date" id="date">${dateValue}</h7>
+          </div>
+          <div class="time" id="time"><h7>${timeValue}</h7></div>`;
+    oneCityDiv = oneCityDiv + placeDateTimeDiv + `</div><hr class="js-hr" />`;
+    repeatCity = repeatCity + oneCityDiv;
+  });
+
+  citiesDiv.innerHTML = repeatCity;
+}
+
+showAllBtn.addEventListener("click", showAllCities);
