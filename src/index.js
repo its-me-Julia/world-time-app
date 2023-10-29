@@ -76,7 +76,11 @@ function showAllCities() {
     oneCityDiv = oneCityDiv + placeDateTimeDiv + `</div><hr class="js-hr" />`;
     repeatCity = repeatCity + oneCityDiv;
   });
-
+  if (showAllBtn.innerHTML === "Show all cities") {
+    showAllBtn.innerHTML = "Hide all cities";
+  } else {
+    showAllBtn.innerHTML = "Show all cities";
+  }
   citiesDiv.innerHTML = repeatCity;
 }
 
